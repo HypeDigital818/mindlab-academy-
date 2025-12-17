@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindLab Academy - Laboratorio di Crescita Personale</title>
+    <meta name="description" content="Sviluppa il mindset vincente attraverso metodi scientifici. Corso esclusivo di trasformazione personale.">
+    <style>
+        /* RESET & VARIABILI */
+        :root {
+            --primary: #1a365d;
+            --secondary: #ed8936;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--secondary), #d97706);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(237, 137, 54, 0.3);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* CORSO SECTION */
+        .course-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .course-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .course-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 20px 0;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">MIND<span>LAB</span> ACADEMY</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Laboratorio di Crescita Personale</h1>
+            <p>Trasforma il tuo mindset attraverso metodi scientifici e strategie pratiche.</p>
+            <a href="#corso" class="cta-button">Scopri il Corso</a>
+        </div>
+    </section>
+
+    <!-- CORSO -->
+    <section id="corso" class="course-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Corso Esclusivo</h2>
+                <p>Un percorso completo di trasformazione personale</p>
+            </div>
+            
+            <div class="course-card">
+                <h3>Mindset Reset: 30 Giorni per Trasformare la Tua Mente</h3>
+                <p>Un percorso guidato che combina neuroscienza, psicologia pratica e coaching per creare un cambiamento duraturo nel tuo modo di pensare e agire.</p>
+                
+                <ul style="margin: 20px 0; padding-left: 20px; line-height: 1.8;">
+                    <li>4 moduli progressivi con video lezioni</li>
+                    <li>Esercizi pratici quotidiani (workbook incluso)</li>
+                    <li>Accesso alla community privata</li>
+                    <li>2 sessioni di gruppo live al mese</li>
+                    <li>Materiali scaricabili e risorse esclusive</li>
+                </ul>
+                
+                <div class="price">€497</div>
+                
+                <a href="#prenota" class="cta-button">Prenota Chiamata Informazioni</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRENOTAZIONI -->
+    <section id="prenota" class="course-section" style="background: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prenota una Chiamata</h2>
+                <p>Scopri se il corso è adatto a te con una chiamata conoscitiva gratuita</p>
+            </div>
+            
+            <div class="course-card">
+                <h3>Chiamata Esplorativa di 30 Minuti</h3>
+                <p>Parliamo dei tuoi obiettivi e di come il corso Mindset Reset può aiutarti a raggiungerli.</p>
+                <p><strong>Gratuita e senza impegno</strong></p>
+                
+                <div style="margin: 25px 0; padding: 20px; background: white; border-radius: 8px; text-align: center;">
+                    <p style="color: var(--gray); margin-bottom: 10px;"><strong>⬇️ INSERISCI QUI CALENDLY ⬇️</strong></p>
+                    <p style="font-size: 0.9rem;">1. Crea account su calendly.com<br>2. Genera link/widget<br>3. Incolla qui il codice</p>
+                </div>
+                
+                <p style="text-align: center;">Oppure scrivi a: <strong>info@mindlabacademy.com</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">MIND<span>LAB</span> ACADEMY</div>
+            <p>Laboratorio di Crescita Personale</p>
+            <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9rem;">© 2024 MindLab Academy. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
