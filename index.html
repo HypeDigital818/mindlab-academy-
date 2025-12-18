@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindLab Academy - Laboratorio di Crescita Personale</title>
-    <meta name="description" content="Sviluppa il mindset vincente attraverso metodi scientifici. Corso esclusivo di trasformazione personale.">
+    <title>MindLab Academy - Mindset, Crescita & Vendite Online</title>
+    <meta name="description" content="Trasforma il tuo mindset, accelera la crescita personale e impara a vendere online. Corsi personalizzati e strategie pratiche.">
     <style>
         /* RESET & VARIABILI */
         :root {
             --primary: #1a365d;
             --secondary: #ed8936;
+            --accent: #38b2ac;
             --light: #f7fafc;
             --dark: #2d3748;
             --gray: #718096;
+            --success: #48bb78;
         }
         
         * {
@@ -37,10 +39,10 @@
         /* HEADER */
         header {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
         
         .header-content {
@@ -60,86 +62,317 @@
             color: var(--secondary);
         }
         
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
         .cta-button {
             background: linear-gradient(135deg, var(--secondary), #d97706);
             color: white;
-            padding: 12px 30px;
+            padding: 14px 35px;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(237, 137, 54, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(237, 137, 54, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: linear-gradient(135deg, var(--primary), #2d3748);
         }
         
         /* HERO SECTION */
         .hero {
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
         
-        /* CORSO SECTION */
-        .course-section {
-            padding: 60px 0;
-            background: white;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* SECTIONS GENERAL */
+        section {
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 25px auto 0;
+        }
+        
+        /* MINDSET ARTICLES */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .article-badge {
+            background: var(--accent);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 15px;
         }
         
-        .course-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--light);
-            border-radius: 12px;
+        .article-content {
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
         
-        .course-card h3 {
-            font-size: 1.5rem;
+        .article-content h3 {
+            font-size: 1.4rem;
             color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .read-time {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* COURSES SECTION */
+        .courses-section {
+            background: #f8fafc;
+        }
+        
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .course-header {
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .course-body {
+            padding: 30px;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .course-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-features li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .mystery-price {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff8e1, #fef3c7);
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px dashed var(--secondary);
+        }
+        
+        .mystery-price h4 {
+            color: #d97706;
+            margin-bottom: 10px;
+        }
+        
+        /* AMAZON PRODUCTS */
+        .products-section {
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .product-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
             margin-bottom: 20px;
         }
         
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin: 20px 0;
+        /* CONTACT SECTION */
+        .contact-section {
+            background: linear-gradient(135deg, #1a365d, #2d3748);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-box {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 50px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
         
         /* FOOTER */
         footer {
-            background: var(--primary);
+            background: var(--dark);
             color: white;
-            padding: 40px 0;
-            text-align: center;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
         }
         
         .footer-logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .header-content { flex-direction: column; gap: 20px; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 15px; }
+            .section-title h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
+            .contact-box { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -147,69 +380,243 @@
     <!-- HEADER -->
     <header>
         <div class="container">
-          <div class="header-content">
+            <div class="header-content">
                 <div class="logo">MIND<span>LAB</span> ACADEMY</div>
+                <nav>
+                    <a href="#mindset">Mindset</a>
+                    <a href="#corsi">Corsi</a>
+                    <a href="#risorse">Risorse</a>
+                    <a href="#contatto">Contatto</a>
+                </nav>
             </div>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <h1>Laboratorio di Crescita Personale</h1>
-            <p>Trasforma il tuo mindset attraverso metodi scientifici e strategie pratiche.</p>
-            <a href="#corso" class="cta-button">Scopri il Corso</a>
+            <h1>Trasforma la Tua Mente,<br>Trasforma la Tua Vita</h1>
+            <p>Scopri come sviluppare un mindset vincente, accelerare la tua crescita personale e padroneggiare l'arte delle vendite online con strategie pratiche e coaching personalizzato.</p>
+            <a href="#contatto" class="cta-button">🚀 Inizia il Tuo Percorso</a>
         </div>
     </section>
 
-    <!-- CORSO -->
-    <section id="corso" class="course-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Corso Esclusivo</h2>
-                <p>Un percorso completo di trasformazione personale</p>
-            </div>  
-          
+    <!-- MINDSET ARTICLES -->
+    <section id="mindset" class="container">
+        <div class="section-title">
+            <h2>Mindset & Crescita Personale</h2>
+            <p>Articoli pratici per sviluppare la mentalità del successo</p>
+        </div>
+        
+        <div class="articles-grid">
+            <!-- Articolo 1 -->
+            <div class="article-card">
+                <div class="article-content">
+                    <span class="article-badge">PSICOLOGIA PRATICA</span>
+                    <h3>Le 3 Trappole Mentali che Bloccano il 90% delle Persone</h3>
+                    <p>Scopri i pattern di pensiero inconsci che sabotano i tuoi risultati e impara strategie concrete per superarli. Dall'auto-sabotaggio alla paura del giudizio.</p>
+                    <div class="read-time">⏱️ 6 min di lettura</div>
+                </div>
             </div>
             
-            <div class="course-card">
-                <h3>Mindset Reset: 30 Giorni per Trasformare la Tua Mente</h3>
-                <p>Un percorso guidato che combina neuroscienza, psicologia pratica e coaching per creare un cambiamento duraturo nel tuo modo di pensare e agire.</p>
-                
-                <ul style="margin: 20px 0; padding-left: 20px; line-height: 1.8;">
-                    <li>4 moduli progressivi con video lezioni</li>
-                    <li>Esercizi pratici quotidiani (workbook incluso)</li>
-                    <li>Accesso alla community privata</li>
-                    <li>2 sessioni di gruppo live al mese</li>
-                    <li>Materiali scaricabili e risorse esclusive</li>
-                </ul>
-                
-                <div class="price">€497</div>
-                
-                <a href="#prenota" class="cta-button">Prenota Chiamata Informazioni</a>
+            <!-- Articolo 2 -->
+            <div class="article-card">
+                <div class="article-content">
+                    <span class="article-badge">NEUROSCIENZA</span>
+                    <h3>Come Riprogrammare il Tuo Cervello in 21 Giorni</h3>
+                    <p>La scienza delle abitudini e come sfruttare la neuroplasticità per creare cambiamenti permanenti. Tecniche validate dalla ricerca neuroscientifica.</p>
+                    <div class="read-time">⏱️ 8 min di lettura</div>
+                </div>
+            </div>
+            
+            <!-- Articolo 3 -->
+            <div class="article-card">
+                <div class="article-content">
+                    <span class="article-badge">PRODUTTIVITÀ</span>
+                    <h3>Il Sistema di Focus che Aumenta la Tua Produttività del 300%</h3>
+                    <p>Non è questione di lavorare di più, ma di focalizzarsi meglio. Un metodo step-by-step per eliminare le distrazioni e concentrarti su ciò che conta veramente.</p>
+                    <div class="read-time">⏱️ 7 min di lettura</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PRENOTAZIONI -->
-    <section id="prenota" class="course-section" style="background: #f1f5f9;">
+    <!-- COURSES SECTION -->
+    <section id="corsi" class="courses-section">
         <div class="container">
             <div class="section-title">
-                <h2>Prenota una Chiamata</h2>
-                <p>Scopri se il corso è adatto a te con una chiamata conoscitiva gratuita</p>
+                <h2>Corsi Esclusivi</h2>
+                <p>Programmi personalizzati per risultati straordinari</p>
             </div>
             
-            <div class="course-card">
-                <h3>Chiamata Esplorativa di 30 Minuti</h3>
-                <p>Parliamo dei tuoi obiettivi e di come il corso Mindset Reset può aiutarti a raggiungerli.</p>
-                <p><strong>Gratuita e senza impegno</strong></p>
-                
-                <div style="margin: 25px 0; padding: 20px; background: white; border-radius: 8px; text-align: center;">
-                    <p style="color: var(--gray); margin-bottom: 10px;"><strong>⬇️ INSERISCI QUI CALENDLY ⬇️</strong></p>
-                    <p style="font-size: 0.9rem;">1. Crea account su calendly.com<br>2. Genera link/widget<br>3. Incolla qui il codice</p>
+            <div class="courses-container">
+                <!-- Corso 1: Crescita Personale -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">🧠</div>
+                        <h3 style="color: white; margin: 0;">Mastery Mindset</h3>
+                        <p style="opacity: 0.9; margin-top: 10px;">Trasformazione Personale 1-on-1</p>
+                    </div>
+                    
+                    <div class="course-body">
+                        <p>Un percorso <strong>completamente personalizzato</strong> per sviluppare il mindset vincente che serve per raggiungere i tuoi obiettivi specifici.</p>
+                        
+                        <ul class="course-features">
+                            <li>Analisi approfondita della tua situazione attuale</li>
+                            <li>Piano d'azione costruito su misura per te</li>
+                            <li>Sessioni di coaching settimanali 1-on-1</li>
+                            <li>Supporto continuo via chat/messaggio</li>
+                            <li>Materiali e esercizi creati appositamente per te</li>
+                            <li>Accountability e monitoraggio progressi</li>
+                        </ul>
+                        
+                        <div class="mystery-price">
+                            <h4>🎯 Scopri l'Investimento</h4>
+                            <p>Il costo varia in base alla personalizzazione richiesta. Prenota un colloquio gratuito per ricevere una proposta su misura.</p>
+                        </div>
+                        
+                        <a href="#contatto" class="cta-button secondary" style="width: 100%; text-align: center; display: block;">📞 Scopri di Più</a>
+                    </div>
                 </div>
                 
-                <p style="text-align: center;">Oppure scrivi a: <strong>info@mindlabacademy.com</strong></p>
+                <!-- Corso 2: Vendite Online -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">💻</div>
+                        <h3 style="color: white; margin: 0;">Online Sales Mastery</h3>
+                        <p style="opacity: 0.9; margin-top: 10px;">Da Principiante a Venditore Professionista</p>
+                    </div>
+                    
+                    <div class="course-body">
+                        <p>Il corso <strong>più completo in Italia</strong> per imparare a vendere online. Non teoria, ma <strong>azioni pratiche guidate passo passo</strong>.</p>
+                        
+                        <ul class="course-features">
+                            <li>Setup completo del tuo sistema di vendita</li>
+                            <li>Copywriting che converte (ti insegno a scrivere)</li>
+                            <li>Strategie di lead generation provate</li>
+                            <li>Gestione obiezioni e chiusure</li>
+                            <li>Automazione e scalabilità del business</li>
+                            <li>Analisi e ottimizzazione performance</li>
+                        </ul>
+                        
+                        <div class="mystery-price">
+                            <h4>🤫 Accesso Speciale</h4>
+                            <p>Questo corso non è pubblicamente listato. Solo chi prenota un colloquio può accedere ai dettagli completi e alla quota di partecipazione.</p>
+                        </div>
+                        
+                        <a href="#contatto" class="cta-button" style="width: 100%; text-align: center; display: block;">🔓 Sblocca Accesso</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-style: italic; color: var(--gray); max-width: 800px; margin: 0 auto;">
+                    "Entrambi i corsi includono supporto personalizzato. Lavoriamo insieme finché non raggiungi i risultati desiderati."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMAZON PRODUCTS SECTION -->
+    <section id="risorse" class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Risorse Consigliate</h2>
+                <p>Libri e strumenti che utilizzo personalmente</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Prodotto 1 -->
+                <div class="product-card">
+                    <div class="product-placeholder">
+                        📚 COPERTINA LIBRO
+                    </div>
+                    <h4>Mindset: La Nuova Psicologia del Successo</h4>
+                    <p>di Carol S. Dweck</p>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-top: 10px;">Il libro fondamentale sulla mentalità di crescita vs fissa.</p>
+                    <div style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 8px;">
+                        <p style="font-size: 0.9rem; color: #2e7d32;">🔒 Link Amazon disponibile per gli iscritti</p>
+                    </div>
+                </div>
+                
+                <!-- Prodotto 2 -->
+                <div class="product-card">
+                    <div class="product-placeholder">
+                        📖 COPERTINA LIBRO
+                    </div>
+                    <h4>Atomic Habits: Piccole Abitudini per Grandi Risultati</h4>
+                    <p>di James Clear</p>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-top: 10px;">Il sistema definitivo per costruire abitudini vincenti.</p>
+                    <div style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 8px;">
+                        <p style="font-size: 0.9rem; color: #2e7d32;">🔒 Link Amazon disponibile per gli iscritti</p>
+                    </div>
+                </div>
+                
+                <!-- Prodotto 3 -->
+                <div class="product-card">
+                    <div class="product-placeholder">
+                        🛠️ STRUMENTO
+                    </div>
+                    <h4>Digital Planner per la Crescita Personale</h4>
+                    <p>Strumento digitale</p>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-top: 10px;">Il planner che uso con i miei clienti per tracciare progressi.</p>
+                    <div style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 8px;">
+                        <p style="font-size: 0.9rem; color: #2e7d32;">🔒 Link download disponibile per gli iscritti</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--gray); font-size: 0.9rem;">
+                    ⚡ <strong>Nota:</strong> I link completi e le risorse extra sono disponibili per chi partecipa ai corsi o si iscrive alla newsletter.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contatto" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Prenota la Tua Chiamata Strategica</h2>
+                <p style="color: rgba(255,255,255,0.8);">30 minuti gratuiti per capire come posso aiutarti</p>
+            </div>
+            
+            <div class="contact-box">
+                <h3 style="color: white; margin-bottom: 20px;">Scegli Come Connetterti</h3>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 30px 0;">
+                    <div style="flex: 1; min-width: 250px; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">📞</div>
+                        <h4 style="color: white; margin-top: 0;">Chiamata Telefonica</h4>
+                        <p style="color: rgba(255,255,255,0.8);">Comoda e diretta</p>
+                        <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.15); border-radius: 8px;">
+                            <p><strong>Inserisci qui il widget Calendly</strong></p>
+                            <p style="font-size: 0.9rem; opacity: 0.7;">(Crea account su calendly.com)</p>
+                        </div>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 250px; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">📹</div>
+                        <h4 style="color: white; margin-top: 0;">Videochiamata</h4>
+                        <p style="color: rgba(255,255,255,0.8);">Faccia a faccia virtuale</p>
+                        <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.15); border-radius: 8px;">
+                            <p><strong>Inserisci qui il widget Calendly</strong></p>
+                            <p style="font-size: 0.9rem; opacity: 0.7;">(Crea account su calendly.com)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                    <p style="color: white; margin-bottom: 10px;"><strong>🎁 Bonus per chi prenota:</strong></p>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">
+                        Riceverai gratuitamente: "La Guida alle 5 Domande che Rivoluzionano il Mindset" + Accesso anticipato ai prossimi articoli.
+                    </p>
+                </div>
+                
+                <p style="margin-top: 30px; color: rgba(255,255,255,0.7);">
+                    Preferisci prima una mail? Scrivi a: <strong>info@mindlabacademy.com</strong>
+                </p>
             </div>
         </div>
     </section>
@@ -217,12 +624,25 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-logo">MIND<span>LAB</span> ACADEMY</div>
-            <p>Laboratorio di Crescita Personale</p>
-            <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9rem;">© 2024 MindLab Academy. Tutti i diritti riservati.</p>
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">MIND<span>LAB</span> ACADEMY</div>
+                    <p>Laboratorio di Mindset, Crescita Personale<br>e Vendite Online</p>
+                </div>
+                <div>
+                    <p><strong>Contatti</strong></p>
+                    <p>Email: info@mindlabacademy.com</p>
+                    <p style="margin-top: 15px;">📍 Italia</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 MindLab Academy. Tutti i diritti riservati.<br>
+                I corsi sono riservati a un numero limitato di partecipanti per garantire la massima qualità.
+            </div>
         </div>
     </footer>
 
+    <!-- SCRIPT PER SCROLL SMOOTH -->
     <script>
         // Smooth scrolling per i link interni
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -238,6 +658,27 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+        
+        // Animazione per le card
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.article-card, .course-card, .product-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
             });
         });
     </script>
